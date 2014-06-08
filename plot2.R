@@ -1,4 +1,4 @@
-plot1 <- function() {
+plot2 <- function() {
     
     temp <- tempfile()
     download.file("https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip", temp)
@@ -16,12 +16,11 @@ plot1 <- function() {
     data$DateTime <- as.POSIXct(paste(data$Date, data$Time))
     
     par(mar=c(5.1, 4.1, 4.1, 2.1))
-    hist(as.numeric(data$Global_active_power),
-         freq=TRUE,
-         col="red",
-         main="Global Active Power",
-         xlab="Global Active Power (kilowatts)")
+    plot(data$DateTime, data$Global_active_power, 
+         type="l",
+         xlab="",
+         ylab="Global Active Power (kilowatts)")
     
-    dev.copy(png, "plot1.png")
+    dev.copy(png, "plot2.png")
     dev.off()
 }

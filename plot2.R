@@ -11,9 +11,8 @@ plot2 <- function() {
     data <- subset(data, Date %in% as.Date(c("2007-02-02", "2007-02-01")))
     data$DateTime <- as.POSIXct(paste(data$Date, data$Time))
     
+    png(file="plot2.png", width=480, height=480)
     par(mar=c(5.1, 4.1, 4.1, 2.1))
     plot(data$DateTime, data$Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)")
-    
-    dev.copy(png, "plot2.png")
     dev.off()
 }

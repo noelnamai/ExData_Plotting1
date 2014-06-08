@@ -11,7 +11,7 @@ plot1 <- function() {
     data <- subset(data, Date %in% as.Date(c("2007-02-02", "2007-02-01")))
     data$DateTime <- as.POSIXct(paste(data$Date, data$Time))
     
-    png(file="plot1.png", width=480, height=480)
+    png(file="plot1.png", width=680, height=680)
     par(mar=c(5.1, 4.1, 4.1, 2.1))
     hist(as.numeric(data$Global_active_power), freq=TRUE, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
     dev.off()

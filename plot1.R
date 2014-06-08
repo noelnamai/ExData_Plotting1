@@ -2,8 +2,7 @@ plot1 <- function() {
     
     temp <- tempfile()
     download.file("https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip", temp)
-    data <- read.table(unz(temp, "household_power_consumption.txt"), sep=";", 
-                       header=TRUE, na.strings="?", stringsAsFactors=FALSE)
+    data <- read.table(unz(temp, "household_power_consumption.txt"), sep=";", header=TRUE, na.strings="?", stringsAsFactors=FALSE)
     unlink(temp)
     
     data <- na.omit(data)    
@@ -13,8 +12,7 @@ plot1 <- function() {
     data$DateTime <- as.POSIXct(paste(data$Date, data$Time))
     
     par(mar=c(5.1, 4.1, 4.1, 2.1))
-    hist(as.numeric(data$Global_active_power), freq=TRUE, col="red",
-         main="Global Active Power", xlab="Global Active Power (kilowatts)")
+    hist(as.numeric(data$Global_active_power), freq=TRUE, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
     
     dev.copy(png, "plot1.png")
     dev.off()

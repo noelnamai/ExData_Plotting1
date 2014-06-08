@@ -11,8 +11,8 @@ plot3 <- function() {
     data <- subset(data, Date %in% as.Date(c("2007-02-02", "2007-02-01")))
     data$DateTime <- as.POSIXct(paste(data$Date, data$Time))
     
-    max_y <- max(data3)
     plot_colors <- c("black","red","blue")
+    max_y <- max(data[c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3")])
     
     png(file="plot3.png", width=480, height=480)
     par(mar=c(5.1, 4.1, 4.1, 2.1))     

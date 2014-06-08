@@ -13,6 +13,7 @@ plot1 <- function() {
     
     data <- subset(data, Date %in% as.Date(c("2007-02-02", "2007-02-01")))
     
+    par(mar=c(5.1, 4.1, 4.1, 2.1))
     hist(as.numeric(data$Global_active_power),
          freq=TRUE,
          col="red",
